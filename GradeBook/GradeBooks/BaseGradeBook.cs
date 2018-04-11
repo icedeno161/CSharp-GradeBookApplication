@@ -11,8 +11,12 @@ namespace GradeBook.GradeBooks
 {
     public class BaseGradeBook
     {
+        #region Properties
+
         public string Name { get; set; }
         public List<Student> Students { get; set; }
+        public GradeBookType Type { get; set; }
+        #endregion
 
         public BaseGradeBook(string name)
         {
