@@ -18,6 +18,12 @@ namespace GradeBook.GradeBooks
 
         #region Methods
 
+        /// <summary>
+        /// Ranked-grading grades students not based on their individual performance, 
+        /// but rather their performance compared to their peers
+        /// </summary>
+        /// <param name="averageGrade">Input Grade</param>
+        /// <returns>Letter grade assigned to input grade</returns>
         public override char GetLetterGrade(double averageGrade)
         {
             if (Students.Count < 5)
@@ -55,6 +61,35 @@ namespace GradeBook.GradeBooks
             {
                 return 'F';
             }
+        }
+
+        /// <summary>
+        /// Checks to see if there are more than 5 students and then calculates Statistics of the gradebook.
+        /// </summary>
+        public override void CalculateStatistics()
+        {
+            if (Students.Count < 5)
+            {
+                Console.WriteLine("Ranked grading requires at least 5 students with grades in order to properly calculate a student's overall grade.");
+                return;
+            }
+
+            base.CalculateStatistics();
+        }
+
+        /// <summary>
+        /// Checks to see if the gradebook has more than 5 students and 
+        /// then calculates the student's overall grade.
+        /// </summary>
+        /// <param name="name">Name of the student</param>
+        public override void CalculateStudentStatistics(string name)
+        {
+            if (Students.Count <5 )
+            {
+                Console.WriteLine("Ranked grading requires at least 5 students with grades in order to properly calculate a student's overall grade.");
+                return;
+            }
+            base.CalculateStudentStatistics(name);
         }
         #endregion
     }
