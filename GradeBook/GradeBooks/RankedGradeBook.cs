@@ -30,10 +30,10 @@ namespace GradeBook.GradeBooks
             // Sort students by grades and then get the thresholds for the top four grades.
             var sortedStudentByGrade = Students.OrderByDescending(s => s.AverageGrade).ToList();
 
-            var top20Percent = sortedStudentByGrade[letterGradeDrop].AverageGrade;
-            var second20Percent = sortedStudentByGrade[letterGradeDrop * 2].AverageGrade;
-            var third20Percent = sortedStudentByGrade[letterGradeDrop * 3].AverageGrade;
-            var fourth20Percent = sortedStudentByGrade[letterGradeDrop * 4].AverageGrade;
+            var top20Percent = sortedStudentByGrade[letterGradeDrop - 1].AverageGrade;
+            var second20Percent = sortedStudentByGrade[(letterGradeDrop - 1) * 2].AverageGrade;
+            var third20Percent = sortedStudentByGrade[(letterGradeDrop - 1) * 3].AverageGrade;
+            var fourth20Percent = sortedStudentByGrade[(letterGradeDrop - 1) * 4].AverageGrade;
 
             if (averageGrade >= top20Percent)
             {
@@ -51,8 +51,10 @@ namespace GradeBook.GradeBooks
             {
                 return 'D';
             }
-
-            return 'F';
+            else
+            {
+                return 'F';
+            }
         }
         #endregion
     }
