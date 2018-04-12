@@ -32,8 +32,8 @@ namespace GradeBook.GradeBooks
 
             var top20Percent = sortedStudentByGrade[letterGradeDrop - 1].AverageGrade;
             var second20Percent = sortedStudentByGrade[(letterGradeDrop * 2) - 1].AverageGrade;
-            var third20Percent = sortedStudentByGrade[(letterGradeDrop - 1 * 3) - 1].AverageGrade;
-            var fourth20Percent = sortedStudentByGrade[(letterGradeDrop - 1 * 4) - 1].AverageGrade;
+            var third20Percent = sortedStudentByGrade[(letterGradeDrop * 3) - 1].AverageGrade;
+            var fourth20Percent = sortedStudentByGrade[(letterGradeDrop * 4) - 1].AverageGrade;
 
             if (averageGrade >= top20Percent)
             {
